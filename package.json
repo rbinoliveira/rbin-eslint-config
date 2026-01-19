@@ -1,6 +1,6 @@
 {
   "name": "@rbinflow/eslint-config",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "private": false,
   "description": "ESLint configuration used by Rubens Oliveira.",
   "main": "index.js",
@@ -12,8 +12,7 @@
     "typescript",
     "react",
     "nextjs",
-    "expo",
-    "tailwindcss"
+    "expo"
   ],
   "files": [
     "node.js",

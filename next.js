@@ -2,6 +2,21 @@
 // Next.js ESLint Config
 // ────────────────────────────────
 
+// Tenta resolver o plugin do Tailwind (opcional)
+// O Prettier procura plugins no node_modules do projeto, não do pacote
+function getPrettierPlugins() {
+  try {
+    // Tenta resolver do node_modules do projeto atual
+    require.resolve('prettier-plugin-tailwindcss', { paths: [process.cwd()] })
+    return ['prettier-plugin-tailwindcss']
+  } catch {
+    // Plugin não encontrado, retorna vazio (não causa erro)
+    return []
+  }
+}
+
+const prettierPlugins = getPrettierPlugins()
+
 module.exports = {
   env: {
     browser: true,
@@ -48,7 +63,7 @@ module.exports = {
         endOfLine: 'lf',
         bracketSpacing: true,
         bracketSameLine: false,
-        plugins: ['prettier-plugin-tailwindcss'],
+        ...(prettierPlugins.length > 0 && { plugins: prettierPlugins }),
       },
     ],
     'react/react-in-jsx-scope': 'off',
