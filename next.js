@@ -12,7 +12,6 @@ module.exports = {
     'next/core-web-vitals',
     'next/typescript',
     'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
     'standard',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
