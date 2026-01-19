@@ -6,11 +6,13 @@
 // O Prettier procura plugins no node_modules do projeto, não do pacote
 function getPrettierPlugins() {
   try {
-    // Tenta resolver do node_modules do projeto atual
-    require.resolve('prettier-plugin-tailwindcss', { paths: [process.cwd()] })
+    // Tenta resolver e carregar o plugin
+    require.resolve('prettier-plugin-tailwindcss')
+    // Se conseguiu resolver, tenta carregar para garantir que funciona
+    require('prettier-plugin-tailwindcss')
     return ['prettier-plugin-tailwindcss']
-  } catch {
-    // Plugin não encontrado, retorna vazio (não causa erro)
+  } catch (e) {
+    // Plugin não encontrado ou não pode ser carregado, retorna vazio (não causa erro)
     return []
   }
 }

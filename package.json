@@ -1,6 +1,6 @@
 {
   "name": "@rbinflow/eslint-config",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "private": false,
   "description": "ESLint configuration used by Rubens Oliveira.",
   "main": "index.js",
