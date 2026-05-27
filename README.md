@@ -62,6 +62,17 @@ module.exports = {
 }
 ```
 
+#### Vite
+
+Same as `react`, plus the Vite Fast Refresh rule (`eslint-plugin-react-refresh`).
+Use this in Vite + React projects.
+
+```javascript
+module.exports = {
+  extends: ['@rbinflow/eslint-config/vite'],
+}
+```
+
 #### Next.js
 
 ```javascript
@@ -498,6 +509,17 @@ Todas as outras configurações são idênticas.
 ```javascript
 module.exports = {
   extends: ['@rbinflow/eslint-config/react'],
+}
+```
+
+#### Vite
+
+Igual ao `react`, mais a regra de Fast Refresh do Vite
+(`eslint-plugin-react-refresh`). Use em projetos Vite + React.
+
+```javascript
+module.exports = {
+  extends: ['@rbinflow/eslint-config/vite'],
 }
 ```
 

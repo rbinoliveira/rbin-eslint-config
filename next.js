@@ -2,22 +2,11 @@
 // Next.js ESLint Config
 // ────────────────────────────────
 
-// Tenta resolver o plugin do Tailwind (opcional)
-// O Prettier procura plugins no node_modules do projeto, não do pacote
-function getPrettierPlugins() {
-  try {
-    // Tenta resolver e carregar o plugin
-    require.resolve('prettier-plugin-tailwindcss')
-    // Se conseguiu resolver, tenta carregar para garantir que funciona
-    require('prettier-plugin-tailwindcss')
-    return ['prettier-plugin-tailwindcss']
-  } catch (e) {
-    // Plugin não encontrado ou não pode ser carregado, retorna vazio (não causa erro)
-    return []
-  }
-}
+// Tailwind (opcional, auto-detectado): plugin de ordenação de classes +
+// stylesheet de entrada no Tailwind v4. Ver ./tailwind-prettier.js
+const { getTailwindPrettierConfig } = require('./tailwind-prettier.js')
 
-const prettierPlugins = getPrettierPlugins()
+const tailwindPrettier = getTailwindPrettierConfig()
 
 module.exports = {
   env: {
@@ -65,7 +54,7 @@ module.exports = {
         endOfLine: 'lf',
         bracketSpacing: true,
         bracketSameLine: false,
-        ...(prettierPlugins.length > 0 && { plugins: prettierPlugins }),
+        ...tailwindPrettier,
       },
     ],
     'react/react-in-jsx-scope': 'off',

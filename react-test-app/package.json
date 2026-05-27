@@ -1,5 +1,5 @@
 {
-  "name": "test-project",
+  "name": "react-test-app",
   "version": "1.0.0",
   "description": "Projeto de teste para @rbinflow/eslint-config",
   "main": "index.js",
@@ -11,14 +11,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@rbinflow/eslint-config": "^1.0.6",
+    "@rbinflow/eslint-config": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
-    "eslint": "^8.57.1",
+    "tailwindcss": "^4.3.0",
     "typescript": "^5.0.0"
   }
 }

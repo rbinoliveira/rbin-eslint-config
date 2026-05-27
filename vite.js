@@ -1,5 +1,6 @@
 // ────────────────────────────────
-// React ESLint Config
+// Vite + React ESLint Config
+// (= preset `react` + Fast Refresh do Vite)
 // ────────────────────────────────
 
 // Tailwind (opcional, auto-detectado): plugin de ordenação de classes +
@@ -31,12 +32,18 @@ module.exports = {
   },
   plugins: [
     'react',
+    'react-refresh',
     'jsx-a11y',
     '@typescript-eslint',
     'import',
     'simple-import-sort',
   ],
   rules: {
+    // Fast Refresh do Vite: componentes devem ser o único export do módulo
+    'react-refresh/only-export-components': [
+      'warn',
+      { allowConstantExport: true },
+    ],
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
     'react/self-closing-comp': 'error',
@@ -102,5 +109,5 @@ module.exports = {
       [require.resolve('@typescript-eslint/parser')]: ['.ts', '.tsx', '.d.ts'],
     },
   },
-  ignorePatterns: ['node_modules'],
+  ignorePatterns: ['node_modules', 'dist'],
 }
